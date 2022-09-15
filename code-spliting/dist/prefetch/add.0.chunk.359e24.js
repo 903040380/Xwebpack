@@ -1,20 +1,18 @@
 "use strict";
-export const id = 1;
-export const ids = [1];
-export const modules = [
-/* 0 */,
-/* 1 */
+(self["webpackChunkwebpack_demo"] = self["webpackChunkwebpack_demo"] || []).push([[0],{
+
+/***/ 2:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-const sum = (...args) => args.reduce((x, y) => x + y)
+const add = (x,y) => x+y
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sum);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (add);
 
 
 /***/ })
-];
-;
+
+}]);

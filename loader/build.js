@@ -4,7 +4,7 @@ const path = require('path')
 const loader = () =>
   webpack({
     mode: 'none',
-    entry: './index.js',
+    entry: path.resolve(__dirname, './index.js'),
     output: {
       clean: true,
       iife: false,

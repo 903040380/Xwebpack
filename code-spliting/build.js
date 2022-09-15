@@ -18,9 +18,11 @@ const path = require('path')
 // 2. 思路二: 控制 vendor.js 的体积，当大于 100KB 时，再次进行分包，多分几个 vendor-XXX.js，但每个 vendor.js 都不超过 100KB
 // 3. 思路三: ......
 
+
+// ! 我们请求的接口返回的是 json 结构的数据，jsonp 请求返回的是 js 文件，里面就一个callback，调用了callback，传递了数据
 const codesplit = () => {
   return webpack({
-    entry: './index.js',
+    entry: path.resolve(__dirname, './index.js'),
     mode: 'none',
     output: {
       filename: 'main.[id].[contenthash:6].js',
@@ -28,10 +30,12 @@ const codesplit = () => {
       iife: false,
       clean: true,
       path: path.resolve(__dirname, 'dist'),
+      // chunkLoading: 'import', // 默认为'jsonp'
+      // chunkFormat: 'module', // 默认为'array-push'
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: './index.html',
+        template: path.resolve(__dirname, './index.html'),
       }),
     ],
   })
